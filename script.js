@@ -52,9 +52,16 @@ function playNim(){
  * @return none
  */
 function userTurn(){
-
+    let turn = prompt("Input # 1-3");
+    turn = parseInt(turn);
+    if (turn< 1 || turn >3){
+        alert("Invalid input");
+        userTurn();
 }
-
+else {
+    count += turn;
+    alert("count is now" + count);
+}
 /** 
  * cpuTurn 
  * Generate computer's turn without losing on purpose.  Different turns if trainer or simple.  
@@ -62,5 +69,12 @@ function userTurn(){
  * @return none
  */
 function cpuTurn(){
-
+let turn = 0;
+if  (count == 17) turn = 3;
+else if (count == 8) turn = 2;
+else if (count > 18) turn = 1 ;
+else if (trainer == true) turn = 4 - count% 4;
+else turn = Math.floor(Math.floor()*3)+1;
+count += turn;
+alert("I counted" + turn + "Count is now " + count);
 }
