@@ -5,7 +5,7 @@
 
 /* Global Variables */
 var trainer = false;
-var count  = 0;
+var count = 0;
 
 /** 
  * main  
@@ -15,12 +15,13 @@ var count  = 0;
  */
 /* Main */
 function main(){
-  let again = true;
-    while (again == true) {
-        trainer = confirm("Trainer mode?");
-        playNim();
-        again = confirm("Play again?")
-    }
+let again = true;
+while (again == true){ 
+   trainer = confirm("Trainer mode?");
+ playNim(){
+    again = confirm("Again?");
+ }
+}
 }
 /** 
  * playNim 
@@ -28,22 +29,26 @@ function main(){
  * @param none 
  * @return none
  */
+
 function playNim(){
-        count=0;
-        while(count<21){
-            playerTurn();
-            if (count < 21){
-                alert("you lose!");
-            }
-       else {
-        cpuTurn();
-        if (count >20){
-            alert("you win!");
-        }
+    count = 0;
+    while(count<21){ 
+        userTurn();
+    if (count>20);
+    alert("you lose!");
     }
+    else{
+   cpuTurn();
+   if(count>20);
+   alert("you win?");
 }
 
 }
+    
+
+}
+
+
 
 /** 
  * userTurn  
@@ -51,30 +56,15 @@ function playNim(){
  * @param none 
  * @return none
  */
+
 function userTurn(){
-    let turn = prompt("Input # 1-3");
-    turn = parseInt(turn);
-    if (turn< 1 || turn >3){
-        alert("Invalid input");
-        userTurn();
-}
-else {
-    count += turn;
-    alert("count is now" + count);
-}
+ 
+
 /** 
  * cpuTurn 
  * Generate computer's turn without losing on purpose.  Different turns if trainer or simple.  
  * @param none 
  * @return none
  */
+
 function cpuTurn(){
-let turn = 0;
-if  (count == 17) turn = 3;
-else if (count == 8) turn = 2;
-else if (count > 18) turn = 1 ;
-else if (trainer == true) turn = 4 - count% 4;
-else turn = Math.floor(Math.floor()*3)+1;
-count += turn;
-alert("I counted" + turn + "Count is now " + count);
-}
